@@ -175,7 +175,13 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Like.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PassedStage.cs" />
+    <Compile Include="Models\Stage.cs" />
+    <Compile Include="Models\Theme.cs" />
+    <Compile Include="Models\TurboTypeContext.cs" />
+    <Compile Include="Models\Сomment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
