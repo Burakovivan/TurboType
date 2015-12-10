@@ -64,20 +64,25 @@ namespace TurboType.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Поле \"{0}\" обязательно к заполнению")]
         [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Поле \"{0}\" обязательно к заполнению")]
+        [StringLength(15, ErrorMessage = "{0} должен содержать не менее {2} символов.", MinimumLength = 3)]
+        [Display(Name = "Логин")]
+        public string Login { get; set; }
+
+        [Required(ErrorMessage = "Поле \"{0}\" обязательно к заполнению")]
+        [StringLength(100, ErrorMessage = "{0} должен содержать не менне {2} символов.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         public string ConfirmPassword { get; set; }
     }
 

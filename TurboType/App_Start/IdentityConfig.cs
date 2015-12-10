@@ -42,7 +42,7 @@ namespace TurboType
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<ApplicationDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context.Get<TTContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
@@ -53,12 +53,15 @@ namespace TurboType
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
+                
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = false,
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = false,
+                
             };
+            
 
             // Configure user lockout defaults
             manager.UserLockoutEnabledByDefault = true;
@@ -78,6 +81,7 @@ namespace TurboType
             });
             manager.EmailService = new EmailService();
             manager.SmsService = new SmsService();
+           
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {

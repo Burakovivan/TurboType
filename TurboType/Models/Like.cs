@@ -5,9 +5,7 @@ namespace TurboType.Models
 {
     public class Like
     {
-        [Key]
-        [Column]
-        public ulong LikeId { get; set; }
+        public long LikeId { get; set; }
         public int CommentId { get; set; }
         public bool isPositive { get; set; }
         public string UserId { get; set; }

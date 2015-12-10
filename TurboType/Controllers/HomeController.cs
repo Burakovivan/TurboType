@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TurboType.Models;
 
 namespace TurboType.Controllers
 {
@@ -10,7 +11,12 @@ namespace TurboType.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            using (TTContext db = new TTContext())
+            {
+                ViewBag.Themes = db.Themes.ToList();
+            }
+
+                return View();
         }
 
         public ActionResult About()

@@ -74,16 +74,30 @@ namespace TurboType.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class TTContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
+        public TTContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
 
-        public static ApplicationDbContext Create()
+        public static TTContext Create()
         {
-            return new ApplicationDbContext();
+            return new TTContext();
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            //объявляем ключи
+            modelBuilder.Entity<PassedStage>().HasKey(t => new { t.StageId, t.UserId });
+            modelBuilder.Entity<Comment>().HasKey(t => t.CommentId);
+            modelBuilder.Entity<Like>().HasKey(t => t.LikeId);
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(t => t.UserId);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(t => t.RoleId);
+        }
+        public DbSet<Like> Likes { get; set; }
+        public DbSet<PassedStage> PassedStages { get; set; }
+        public DbSet<Stage> Stages { get; set; }
+        public DbSet<Theme> Themes { get; set; }
+        public DbSet<Comment> Comment { get; set; }
     }
 }
