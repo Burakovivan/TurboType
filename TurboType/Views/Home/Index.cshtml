@@ -12,48 +12,48 @@
 
 @if (!User.Identity.IsAuthenticated)
 {
-    <div class="col-sm-offset-3 col-sm-6 ">
-        <iframe class="visible-xs" width=400 height=200 src="https://www.youtube.com/embed/q4Gzii_FbHQ?list=PLypd1VrGv7FPokhw3f5pwBQTHsU9T2mBq" frameborder="0" allowfullscreen></iframe>
-        <iframe class="visible-sm" width=450 height=250 src="https://www.youtube.com/embed/q4Gzii_FbHQ?list=PLypd1VrGv7FPokhw3f5pwBQTHsU9T2mBq" frameborder="0" allowfullscreen></iframe>
-        <iframe class="visible-md" width=500 height=300 src="https://www.youtube.com/embed/q4Gzii_FbHQ?list=PLypd1VrGv7FPokhw3f5pwBQTHsU9T2mBq" frameborder="0" allowfullscreen></iframe>
-        <iframe class="visible-lg" width=1280 height=720 src="https://www.youtube.com/embed/q4Gzii_FbHQ?list=PLypd1VrGv7FPokhw3f5pwBQTHsU9T2mBq" frameborder="0" allowfullscreen></iframe>
+    <div class="col-sm-offset-3 col-sm-6">
+        <iframe class="visible-xs center-block" width=300 height=170 src="https://www.youtube.com/embed/q4Gzii_FbHQ?list=PLypd1VrGv7FPokhw3f5pwBQTHsU9T2mBq" frameborder="0" allowfullscreen></iframe>
+        <iframe class="visible-sm center-block" width=375 height=211 src="https://www.youtube.com/embed/q4Gzii_FbHQ?list=PLypd1VrGv7FPokhw3f5pwBQTHsU9T2mBq" frameborder="0" allowfullscreen></iframe>
+        <iframe class="visible-md center-block" width=485 height=274 src="https://www.youtube.com/embed/q4Gzii_FbHQ?list=PLypd1VrGv7FPokhw3f5pwBQTHsU9T2mBq" frameborder="0" allowfullscreen></iframe>
+        <iframe class="visible-lg center-block" width=585 height=329 src="https://www.youtube.com/embed/q4Gzii_FbHQ?list=PLypd1VrGv7FPokhw3f5pwBQTHsU9T2mBq" frameborder="0" allowfullscreen></iframe>
     </div>
-}
+}       
 else
 {
     <div class="container">
 
         <div class="row" style="margin-top:20px;">
             <div class="tabbable">
-                <ul class="nav row text-center ">
-                    <li class="active col-xs-4 thumbnail"><a href="#tab1" data-toggle="tab">Обучение</a></li>
-                    <li class="col-xs-4 thumbnail"><a href="#tab2" data-toggle="tab">Соревнование</a></li>
-                    <li class="col-xs-4 thumbnail"><a href="#tab3" data-toggle="tab">Одиночная печать</a></li>
+                <ul class="nav row text-center stage-tab-container">
+                    <li class="active col-xs-4 stage-tab"><a href="#tab1" style="color:black;" data-toggle="tab">Обучение</a></li>
+                    <li class="col-xs-4 stage-tab"><a href="#tab2" style="color:black;" data-toggle="tab">Соревнование</a></li>
+                    <li class="col-xs-4 stage-tab"><a href="#tab3" style="color:black;" data-toggle="tab">Одиночная печать</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active stage-container" id="tab1">
-                        <div class="stage">
-
-                        </div>
-                        @foreach (var t in ViewBag.Learning)
+                        @foreach (var stage in ViewBag.Learning)
                         {
+                            <div class="col-xs-4">
 
+                            </div>
                         }
                     </div>
-                    <div class="tab-pane stage-container" id="tab2">
+                </div>
 
-                        @foreach (var t in ViewBag.Competiton)
-                        {
+                <div class="tab-pane stage-container" id="tab2">
 
-                        }
-                    </div>
-                    <div class="tab-pane stage-container" id="tab3">
+                    @foreach (var t in ViewBag.Competiton)
+                {
 
-                        @foreach (var t in ViewBag.SingleType)
-                        {
+                }
+                </div>
+                <div class="tab-pane stage-container" id="tab3">
 
-                        }
-                    </div>
+                    @foreach (var t in ViewBag.SingleType)
+                {
+
+                }
                 </div>
             </div>
         </div>

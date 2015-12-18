@@ -15,7 +15,7 @@ namespace TurboType.Controllers
             {
                 ViewBag.Themes = db.Themes.ToList();
 
-                ViewBag.Learning = new List<Stage>();
+                ViewBag.Learning = new List<Stage>() { new Stage(), new Stage() };
                 ViewBag.Competiton = new List<Stage>();
                 ViewBag.SingleType = new List<Stage>();
             }
