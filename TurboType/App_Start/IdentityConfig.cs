@@ -59,7 +59,6 @@ namespace TurboType
                 RequireDigit = true,
                 RequireLowercase = true,
                 RequireUppercase = false,
-                
             };
             
 
