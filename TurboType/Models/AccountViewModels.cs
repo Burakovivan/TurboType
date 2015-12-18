@@ -53,6 +53,7 @@ namespace TurboType.Models
         [EmailAddress]
         public string Email { get; set; }
 
+
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
@@ -68,7 +69,17 @@ namespace TurboType.Models
         [EmailAddress]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
+        
+        
+        [Display(Name = "Имя")]
+        public string FirstName { get; set; }
 
+        [Display(Name = "Фамилия")]
+        public string LastName { get; set; }
+
+
+        [Display(Name = "Отчество")]
+        public string Patronymic { get; set; }
         [Required(ErrorMessage = "Поле \"{0}\" обязательно к заполнению")]
         [StringLength(15, ErrorMessage = "{0} должен содержать не менее {2} символов.", MinimumLength = 3)]
         [Display(Name = "Логин")]

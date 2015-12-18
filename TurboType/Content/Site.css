@@ -54,3 +54,15 @@ textarea {
     vertical-align:middle;
     
 }
+.input-group-addon {
+min-width:150px;
+text-align:left;
+}
+
+.btn-success{
+background-color:#5FCEC0;
+border-style: none;
+}
+.btn-success:hover{
+background-color:#77E6D7;
+}

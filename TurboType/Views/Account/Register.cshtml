@@ -1,6 +1,6 @@
 ﻿@model TurboType.Models.RegisterViewModel
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Регистрация";
 }
 
 <h2>@ViewBag.Title.</h2>
@@ -8,34 +8,53 @@
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
- 
-        <div class="input-group form-group">
-            <span class="input-group-addon">Email</span>
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Почта" })
-        </div>
-        <div class="input-group form-group">
-            <span class="input-group-addon">Login</span>
-            @Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = "Логин" })
-        </div>
-        <div class="input-group form-group">
-            <span class="input-group-addon">Password</span>
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Пароль" })
-        </div>
-        <div class="input-group form-group">
-            <span class="input-group-addon">Confirm password</span>
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Еще раз пароль" })
-        </div>
+    <h4>Создать новый аккаунт</h4>
 
-    <div class="form-group">
-        <div class="col-xs-12">
-            <button type="submit" name="submit" class="btn btn-block btn-success">
-                Зарегистрироваться
-            </button></div>
-    </div>
-    
+    <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+        <div class="col-md-4 col-md-offset-4">
+            <div class="input-group form-group">
+                <span class="input-group-addon">E-mail</span>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Почта" })
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon">Логин</span>
+                @Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = "Логин" })
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon">Фамилия</span>
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", @placeholder = "Фамилия" })
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon">Имя</span>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", @placeholder = "Имя" })
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon">Отчество</span>
+                @Html.TextBoxFor(m => m.Patronymic, new { @class = "form-control", @placeholder = "Отчество" })
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon">Пароль</span>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Пароль" })
+            </div>
+            <div class="input-group form-group">
+                <span class="input-group-addon">Повторите пароль</span>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Пароль" })
+            </div>
+            
+            <div class="form-group">
+                <div class="col-md-6 col-md-offset-3">
+                    <button type="submit" name="submit" class="btn btn-block btn-success">
+                        Зарегистрироваться
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br />
+        <br /><br /><br /><br />
 }
 
 @section Scripts {
