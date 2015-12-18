@@ -31,3 +31,12 @@ textarea {
     width:100%;
     height:auto;
 }
+
+.stage-container{
+    margin-top:20px;
+    background-color:transparent;
+}
+.stages{
+    display:inline-block;
+    margin:0 auto;
+}

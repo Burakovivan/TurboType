@@ -14,6 +14,10 @@ namespace TurboType.Controllers
             using (TTContext db = new TTContext())
             {
                 ViewBag.Themes = db.Themes.ToList();
+
+                ViewBag.Learning = new List<Stage>();
+                ViewBag.Competiton = new List<Stage>();
+                ViewBag.SingleType = new List<Stage>();
             }
 
                 return View();
