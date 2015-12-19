@@ -20,7 +20,7 @@ namespace TurboType.Models
         public string TextToType { get; set; }
         
         [Required]
-        public byte Сomplexity { get; set; }
+        public byte Complexity { get; set; }
         
         [Required]
         public int ThemeId { get; set; }

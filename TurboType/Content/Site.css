@@ -22,47 +22,133 @@ select,
 textarea {
 }
 
-.well{
-			box-shadow: 0px 10px 20px #000;
+.well {
+    box-shadow: 0px 10px 20px #000;
 }
 
-.promo-video{
-    margin:0 auto;
-    width:100%;
-    height:auto;
+.promo-video {
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
 }
 
-.stage-container{
-    margin-top:20px;
-    background-color:transparent;
+.stage-container {
+    margin-top: 20px;
+    background-color: transparent;
 }
-.stages{
-    display:inline-block;
-    margin:0 auto;
+
+.stages {
+    height: 200px;
+    background-color: #669297;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
 }
-.stage-tab-container{
-    height:150px;
+
+.stage-name {
+    text-align: center;
 }
-.stage-tab{
-   height:100%;
-   font-family:Verdana;
-   font-size:30px;
+
+.stage-complexity {
+    text-align: center;
 }
-.stage-tab a{
-    background-color:rgba(204, 66, 209, 0.36);
-    height:100%;
-    vertical-align:middle;
-    
+
+.stage-start-btn {
+    width: 100%;
 }
+
+.stage-tab-container {
+    height: 80px;
+}
+
+.stage-tab {
+    font-family: Verdana;
+    font-size: 20px;
+}
+
+    .stage-tab a {
+        background-color: #bf874c;
+        height: 100%;
+        vertical-align: middle;
+    }
+
 .input-group-addon {
-min-width:150px;
-text-align:left;
+    min-width: 150px;
+    text-align: left;
 }
 
-.btn-success{
-background-color:#5FCEC0;
-border-style: none;
+.btn-success {
+    background-color: #5FCEC0;
+    border-style: none;
 }
-.btn-success:hover{
-background-color:#77E6D7;
+
+    .btn-success:hover {
+        background-color: #77E6D7;
+    }
+
+.passing-stage {
+    background-color: #1b3338;
+    height: 500px;
+    border: 1px solid #caccc1;
+    border-left: 0;
+    border-right: 0;
+}
+
+.fluid {
+    width: 100%;
+}
+
+.display {
+    margin: 0 auto;
+    width: 752px;
+    background-color: gainsboro;
+    height: 50px;
+    border: 2px solid gray;
+}
+
+.keyboard {
+    background-color: #669297;
+    height: 267px;
+    width: 752px;
+    padding: 9px;
+    border-radius: 0.7em;
+    margin: 0 auto;
+}
+
+.key {
+    width: 47px;
+    height: 47px;
+    border: 1px solid #5c5b5b;
+    background-color: lightgray;
+    color: darkgray;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.key1 {
+    background-color: #78e2aa;
+    color: #4a4a4a;
+}
+
+.key2 {
+    background-color: #63e3ff;
+    color: #4eb2c8;
+}
+
+.key3 {
+    background-color: #b0e86a;
+    color: #8ab653;
+}
+
+.key4 {
+    background-color: #ffc07e;
+    color: #c89763;
+}
+
+.key5 {
+    background-color: #ffef7e;
+    color: #c8bb63;
 }
