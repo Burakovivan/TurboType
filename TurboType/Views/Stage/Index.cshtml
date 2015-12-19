@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/Site.css" rel="stylesheet" />
+<h2>@ViewBag.Current.StageName</h2>
+
+<div class="display">
+
+</div>
+<br />
+<div class="keyboard table">
+    <div class="">
+        <div class="key">ё</div>
+        <div class="key key1">1</div>
+        <div class="key key1">2</div>
+        <div class="key key2">3</div>
+        <div class="key key3">4</div>
+        <div class="key key4">5</div>
+        <div class="key key4">6</div>
+        <div class="key key5">7</div>
+        <div class="key key3">8</div>
+        <div class="key key2">9</div>
+        <div class="key key1">0</div>
+        <div class="key key1">-</div>
+        <div class="key key1">=</div>
+        <div class="key" style="width:70px;">←</div>
+    </div>
+    <div>
+        <div class="key " style="width:70px; padding-left:12px; text-align:left;">Tab</div>
+        <div class="key key1">й</div>
+        <div class="key key2">ц</div>
+        <div class="key key3">у</div>
+        <div class="key key4">к</div>
+        <div class="key key4">е</div>
+        <div class="key key5">н</div>
+        <div class="key key5">г</div>
+        <div class="key key3">ш</div>
+        <div class="key key2">щ</div>
+        <div class="key key1">з</div>
+        <div class="key key1">х</div>
+        <div class="key key1">ъ</div>
+        <div class="key ">\</div>
+    </div>
+    <div>
+        <div class="key " style="width:83px; padding-left:12px; text-align:left;">Caps</div>
+        <div class="key key1">ф</div>
+        <div class="key key2">ы</div>
+        <div class="key key3">в</div>
+        <div class="key key4">а</div>
+        <div class="key key4">п</div>
+        <div class="key key5">р</div>
+        <div class="key key5">о</div>
+        <div class="key key3">л</div>
+        <div class="key key2">д</div>
+        <div class="key key1">ж</div>
+        <div class="key key1">э</div>
+        <div class="key " style="width:86px; padding-right:12px; text-align:right;">Enter</div>
+    </div>
+    <div>
+        <div class="key " style="width:110px; padding-left:12px; text-align:left;">Shift</div>
+        <div class="key key1">я</div>
+        <div class="key key2">ч</div>
+        <div class="key key3">с</div>
+        <div class="key key4">м</div>
+        <div class="key key4">и</div>
+        <div class="key key5">т</div>
+        <div class="key key5">ь</div>
+        <div class="key key3">б</div>
+        <div class="key key2">ю</div>
+        <div class="key key1">.</div>
+        <div class="key " style="width:109px; padding-right:12px; text-align:right;">Shift</div>
+    </div>
+    <div style="text-align:center;">
+
+        <div class="key " style="width:270px; "></div>
+    </div>
+</div>
+
+<script>
+
+    isUpper = false;
+
+
+    onkeypress = function (e) {
+        e = e || event;
+
+        if (e.ctrlKey || e.altKey || e.metaKey) return;
+
+        if (e.shiftKey) {
+            isUpper = true;
+            return;
+        }
+
+        ch = getChar(e);
+        if (ch == null) return;
+
+        
+    }
+
+
+</script>
