@@ -120,7 +120,7 @@ textarea {
     height: 47px;
     border: 1px solid #5c5b5b;
     background-color: lightgray;
-    color: darkgray;
+    color: black;
     text-align: center;
     line-height: 45px;
     border-radius: 3px;
@@ -130,25 +130,25 @@ textarea {
 
 .key1 {
     background-color: #78e2aa;
-    color: #4a4a4a;
+    
 }
 
 .key2 {
     background-color: #63e3ff;
-    color: #4eb2c8;
+   
 }
 
 .key3 {
     background-color: #b0e86a;
-    color: #8ab653;
+    
 }
 
 .key4 {
     background-color: #ffc07e;
-    color: #c89763;
 }
 
 .key5 {
     background-color: #ffef7e;
-    color: #c8bb63;
+   
 }
+
