@@ -99,12 +99,38 @@ textarea {
 }
 
 .display {
+    padding:0 10px;
     margin: 0 auto;
     width: 752px;
-    background-color: gainsboro;
+    background-color: white;
     height: 50px;
     border: 2px solid gray;
+    border-radius:0.7em;
 }
+.field{ 
+    margin:7.5px;
+    height:35px;    
+}
+.display span
+{
+    white-space:pre;
+    font-size:25px;
+    float:left;
+    display:inline-block;
+}
+.fCursor{
+    height:32px;
+    margin:auto 0;
+    line-height:50px;
+    float:left;
+    display:inline-block;
+    white-space:pre;
+    display:inline;
+    border-right:1px solid #626262;
+    padding:0;
+    visibility:hidden;
+}
+
 
 .keyboard {
     background-color: #669297;
@@ -125,7 +151,9 @@ textarea {
     line-height: 45px;
     border-radius: 3px;
     display: inline-block;
+    
     margin-top: 3px;
+
 }
 
 .key1 {
@@ -152,3 +180,9 @@ textarea {
    
 }
 
+.not-done{
+    color:black;
+}
+.done{
+    color:darkgray;
+}
