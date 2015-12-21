@@ -81,7 +81,7 @@
             <div class="key " style="width:109px; padding-right:12px; text-align:right;" id="Shift">Shift</div>
         </div>
         <div style="text-align:center;">
-            <div class="key " style="width:270px; " id="Space"></div>
+            <div class="key " style="width:270px; " id="Space1"></div>
         </div>
 
     </div>
@@ -149,7 +149,7 @@
             <div class="key " style="width:109px; padding-right:12px; text-align:right;" id="Shift">Shift</div>
         </div>
         <div style="text-align:center;">
-            <div class="key " style="width:270px; " id="Space"></div>
+            <div class="key " style="width:270px; " id="Space2"></div>
         </div>
 
     </div>
@@ -172,23 +172,23 @@
         //alert(document.getElementById('not-done').innerHTML);
         //alert(document.getElementById('not-done').innerText[0] == ch);
 
-        //alert(ch);  
-        if (e.keyCode == 32 && document.getElementById('not-done').innerText[0] == " ") {
-            document.getElementsByClassName('done')[0].innerText += " ";
-            document.getElementsByClassName('not-done')[0].innerText =
-                document.getElementsByClassName('not-done')[0].innerText.substring(1,
-                document.getElementsByClassName('not-done')[0].innerText.length);
+        //alert(ch);
+        //if (e.keyCode == 32 && document.getElementById('not-done').innerText[0] == " ") {
+        //    document.getElementsByClassName('done')[0].innerText += " ";
+        //    document.getElementsByClassName('not-done')[0].innerText =
+        //        document.getElementsByClassName('not-done')[0].innerText.substring(1,
+        //        document.getElementsByClassName('not-done')[0].innerText.length);
 
-            if (document.getElementById('not-done').innerText.length > 0)
-            {
-                highLight(document.getElementById('not-done').innerText[0]);
-                fadeLight(ch);
-            }
-            else
-            {
-                fadeLight(ch);
-            }
-        }
+        //    if (document.getElementById('not-done').innerText.length > 0)
+        //    {
+        //        highLight(document.getElementById('not-done').innerText[0]);
+        //        fadeLight(ch);
+        //    }
+        //    else
+        //    {
+        //        fadeLight(ch);
+        //    }
+        //}
         if (document.getElementById('not-done').innerText[0] == ch) {
 
             document.getElementsByClassName('done')[0].innerText += ch;
@@ -198,17 +198,30 @@
 
             if (document.getElementById('not-done').innerText.length > 0)
             {
-                highLight(document.getElementById('not-done').innerText[0]);
                 fadeLight(ch);
+                highLight(document.getElementById('not-done').innerText[0]);
             }
             else {
                 fadeLight(ch);
             }
         }
+        else
+        {
+            MakeRed(ch);
+            setTimeout(MakeNormal, 75, ch);
+        }
     }
     function fadeLight(key)
     {
-        if (key == " ") next = "Space";
+        if (key == " ") {
+            document.getElementById("Space1").style.border = "1px solid #5c5b5b";
+            document.getElementById("Space1").style.margin = "0px";
+            document.getElementById("Space1").style.marginTop = "2px";
+            document.getElementById("Space2").style.border = "1px solid #5c5b5b";
+            document.getElementById("Space2").style.margin = "0px";
+            document.getElementById("Space2").style.marginTop = "2px";
+            return;
+        }
         if (document.getElementById(key) == null) return;
         document.getElementById(key).style.border = "1px solid #5c5b5b";
         document.getElementById(key).style.margin = "0px";
@@ -216,12 +229,26 @@
     }
     function highLight(key)
     {
-        if (key == " ") next = "Space";
-        //alert(next + ' ' + prev);
+        if (key == " ") {
+            document.getElementById("Space1").style.border = "2px solid white";
+            document.getElementById("Space1").style.margin = "0px";
+            document.getElementById("Space1").style.marginTop = "1px";
+            document.getElementById("Space2").style.border = "2px solid white";
+            document.getElementById("Space2").style.margin = "0px";
+            document.getElementById("Space2").style.marginTop = "1px";
+        }
         if (document.getElementById(key) == null) return;
         document.getElementById(key).style.border = "2px solid white";
         document.getElementById(key).style.margin = "0px";
         document.getElementById(key).style.marginTop = "1px";
+    }
+    function MakeRed(key)
+    {
+        document.getElementById(key).style.backgroundColor = "red";
+    }
+    function MakeNormal(key)
+    {
+        document.getElementById(key).style.backgroundColor = document.getElementsByClassName("key")[0].style.backgroundColor;
     }
 
 
@@ -255,37 +282,38 @@
             //document.getElementById("\\").textContent = "/";
             //document.getElementById(".").textContent = ",";
 
-            
+
             //highLight(document.getElementById('not-done').innerText[0].toLowerCase());
         }
     };
     function setShiftUp() {
+        if (!event.shiftKey) {
+            document.getElementById('kb1').style.display = "block";
+            document.getElementById('kb2').style.display = "none";
 
-        document.getElementById('kb1').style.display = "block";
-        document.getElementById('kb2').style.display = "none";
+            //if (!event.shiftKey) {
+            //    var elem = document.getElementsByClassName("letter");
+            //    for (var i = 0; i < elem.length; i++) {
+            //        elem[i].textContent = elem[i].textContent.toLowerCase();
+            //    }
+            //    document.getElementById(1).textContent = "1";
+            //    document.getElementById(2).textContent = "2";
+            //    document.getElementById(3).textContent = "3";
+            //    document.getElementById(4).textContent = "4";
+            //    document.getElementById(5).textContent = "5";
+            //    document.getElementById(6).textContent = "6";
+            //    document.getElementById(7).textContent = "7";
+            //    document.getElementById(8).textContent = "8";;
+            //    document.getElementById(9).textContent = "9";
+            //    document.getElementById(0).textContent = "0";
+            //    document.getElementById("-").textContent = "-";
+            //    document.getElementById("=").textContent = "=";
+            //    document.getElementById("\\").textContent = "\\";
+            //    document.getElementById(".").textContent = ".";
 
-        //if (!event.shiftKey) {
-        //    var elem = document.getElementsByClassName("letter");
-        //    for (var i = 0; i < elem.length; i++) {
-        //        elem[i].textContent = elem[i].textContent.toLowerCase();
-        //    }
-        //    document.getElementById(1).textContent = "1";
-        //    document.getElementById(2).textContent = "2";
-        //    document.getElementById(3).textContent = "3";
-        //    document.getElementById(4).textContent = "4";
-        //    document.getElementById(5).textContent = "5";
-        //    document.getElementById(6).textContent = "6";
-        //    document.getElementById(7).textContent = "7";
-        //    document.getElementById(8).textContent = "8";;
-        //    document.getElementById(9).textContent = "9";
-        //    document.getElementById(0).textContent = "0";
-        //    document.getElementById("-").textContent = "-";
-        //    document.getElementById("=").textContent = "=";
-        //    document.getElementById("\\").textContent = "\\";
-        //    document.getElementById(".").textContent = ".";
-
-        //    fadeLight(document.getElementById('not-done').innerText[0].toLowerCase());
-        //}
+            //    fadeLight(document.getElementById('not-done').innerText[0].toLowerCase());
+            //}
+        }
     }
     function blinking() {
         if (document.getElementById('cursor').style.visibility == 'hidden')
