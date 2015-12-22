@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
 }
 
@@ -26,11 +26,7 @@ textarea {
     box-shadow: 0px 10px 20px #000;
 }
 
-.promo-video {
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-}
+
 
 .stage-container {
     margin-top: 20px;
@@ -44,9 +40,19 @@ textarea {
     margin-bottom: 15px;
     padding: 10px;
 }
-
+.stage-capation{
+    text-align: center;
+    font-family:Impact;
+    padding:20px;
+    font-size:30px;
+}
 .stage-name {
     text-align: center;
+    font-family:Impact;
+    padding:20px;
+    font-size:60px;
+    border-bottom:1px solid gray;
+    border-top:1px solid gray;
 }
 
 .stage-complexity {
@@ -93,19 +99,22 @@ textarea {
     border-left: 0;
     border-right: 0;
 }
-
+.keyboard-container{
+    background-color:#77e9ae;
+    border-bottom:1px solid gray;
+    padding:40px;
+}
 .fluid {
     width: 100%;
 }
 
 .display {
     padding:0 10px;
-    margin: 0 auto;
+    margin: 10px auto;
     width: 752px;
     background-color: white;
     height: 50px;
     border: 2px solid gray;
-    border-radius:0.7em;
 }
 .field{ 
     margin:7.5px;
@@ -126,19 +135,19 @@ textarea {
     display:inline-block;
     white-space:pre;
     display:inline;
-    border-right:1px solid #626262;
+    border-right:1px solid gray;
     padding:0;
     visibility:hidden;
 }
 
 
 .keyboard {
-    background-color: #669297;
+    background-color: #FFFFFF;
     height: 267px;
     width: 752px;
     padding: 9px;
     border-radius: 0.7em;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 
 .key {
@@ -186,3 +195,18 @@ textarea {
 .done{
     color:darkgray;
 }
+
+.home-pic{
+    height:350px;
+    background: #EEE url("pics/home-pic-1.png") top  center   no-repeat;
+}
+.home-1{
+    height:800px;
+    background-color:#eee;
+}
+
+
+.header-aero-style{
+background-color:rgba(193, 111, 171, 0.29)
+}
+

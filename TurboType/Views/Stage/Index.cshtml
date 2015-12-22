@@ -3,155 +3,156 @@
     ViewBag.Title = "Index";
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
+<div style="height:50px;"></div>
 
+<div class="stage-name">@ViewBag.Current.StageName</div>
 
-<h2>@ViewBag.Current.StageName</h2>
+<div class="keyboard-container">
+    <div class="container ">
+        <div class="display">
 
+            <div class="field">
+                <span id="done" class="done"></span>
+                <span id="cursor" class="fCursor"></span>
+                <span id="not-done" class="not-done">@ViewBag.Current.TextToType</span>
+            </div>
+        </div>
+        <div class="row" ></div>
+        <div id="kb1" class="keyboard table">
+            <div>
+                <div class="key letter">ё</div>
+                <div class="key key1" id="1">1</div>
+                <div class="key key1" id="2">2</div>
+                <div class="key key2" id="3">3</div>
+                <div class="key key3" id="4">4</div>
+                <div class="key key4" id="5">5</div>
+                <div class="key key4" id="6">6</div>
+                <div class="key key5" id="7">7</div>
+                <div class="key key3" id="8">8</div>
+                <div class="key key2" id="9">9</div>
+                <div class="key key1" id="0">0</div>
+                <div class="key key1" id="-">-</div>
+                <div class="key key1" id="=">=</div>
+                <div class="key" style="width:70px;">←</div>
+            </div>
+            <div>
+                <div class="key " style="width:70px; padding-left:12px; text-align:left;">Tab</div>
+                <div class="key key1 letter" id="й">й</div>
+                <div class="key key2 letter" id="ц">ц</div>
+                <div class="key key3 letter" id="у">у</div>
+                <div class="key key4 letter" id="к">к</div>
+                <div class="key key4 letter" id="е">е</div>
+                <div class="key key5 letter" id="н">н</div>
+                <div class="key key5 letter" id="г">г</div>
+                <div class="key key3 letter" id="ш">ш</div>
+                <div class="key key2 letter" id="щ">щ</div>
+                <div class="key key1 letter" id="з">з</div>
+                <div class="key key1 letter" id="х">х</div>
+                <div class="key key1 letter" id="ъ">ъ</div>
+                <div class="key" id="\">\</div>
+            </div>
+            <div>
+                <div class="key " style="width:83px; padding-left:12px; text-align:left;" id="Caps">Caps</div>
+                <div class="key key1 letter" id="ф">ф</div>
+                <div class="key key2 letter" id="ы">ы</div>
+                <div class="key key3 letter" id="в">в</div>
+                <div class="key key4 letter" id="а">а</div>
+                <div class="key key4 letter" id="п">п</div>
+                <div class="key key5 letter" id="р">р</div>
+                <div class="key key5 letter" id="о">о</div>
+                <div class="key key3 letter" id="л">л</div>
+                <div class="key key2 letter" id="д">д</div>
+                <div class="key key1 letter" id="ж">ж</div>
+                <div class="key key1 letter" id="э">э</div>
+                <div class="key " style="width:86px; padding-right:12px; text-align:right;" id="Enter">Enter</div>
+            </div>
+            <div>
+                <div class="key " style="width:110px;  padding-left:12px; text-align:left;" id="Shift">Shift</div>
+                <div class="key key1 letter" id="я">я</div>
+                <div class="key key2 letter" id="ч">ч</div>
+                <div class="key key3 letter" id="с">с</div>
+                <div class="key key4 letter" id="м">м</div>
+                <div class="key key4 letter" id="и">и</div>
+                <div class="key key5 letter" id="т">т</div>
+                <div class="key key5 letter" id="ь">ь</div>
+                <div class="key key3 letter" id="б">б</div>
+                <div class="key key2 letter" id="ю">ю</div>
+                <div class="key key1" id=".">.</div>
+                <div class="key " style="width:109px; padding-right:12px; text-align:right;" id="Shift">Shift</div>
+            </div>
+            <div style="text-align:center;">
+                <div class="key " style="width:270px; " id="Space1"></div>
+            </div>
 
-<div class="container">
-    <div class="display">
-
-        <div class="field">
-            <span id="done" class="done"></span>
-            <span id="cursor" class="fCursor"></span>
-            <span id="not-done" class="not-done">@ViewBag.Current.TextToType</span>
-        </div>
-    </div>
-    <div class="row" style="height:30px;"></div>
-    <div id="kb1" class="keyboard table">
-        <div>
-            <div class="key letter">ё</div>
-            <div class="key key1" id="1">1</div>
-            <div class="key key1" id="2">2</div>
-            <div class="key key2" id="3">3</div>
-            <div class="key key3" id="4">4</div>
-            <div class="key key4" id="5">5</div>
-            <div class="key key4" id="6">6</div>
-            <div class="key key5" id="7">7</div>
-            <div class="key key3" id="8">8</div>
-            <div class="key key2" id="9">9</div>
-            <div class="key key1" id="0">0</div>
-            <div class="key key1" id="-">-</div>
-            <div class="key key1" id="=">=</div>
-            <div class="key" style="width:70px;">←</div>
-        </div>
-        <div>
-            <div class="key " style="width:70px; padding-left:12px; text-align:left;">Tab</div>
-            <div class="key key1 letter" id="й">й</div>
-            <div class="key key2 letter" id="ц">ц</div>
-            <div class="key key3 letter" id="у">у</div>
-            <div class="key key4 letter" id="к">к</div>
-            <div class="key key4 letter" id="е">е</div>
-            <div class="key key5 letter" id="н">н</div>
-            <div class="key key5 letter" id="г">г</div>
-            <div class="key key3 letter" id="ш">ш</div>
-            <div class="key key2 letter" id="щ">щ</div>
-            <div class="key key1 letter" id="з">з</div>
-            <div class="key key1 letter" id="х">х</div>
-            <div class="key key1 letter" id="ъ">ъ</div>
-            <div class="key" id="\">\</div>
-        </div>
-        <div>
-            <div class="key " style="width:83px; padding-left:12px; text-align:left;" id="Caps">Caps</div>
-            <div class="key key1 letter" id="ф">ф</div>
-            <div class="key key2 letter" id="ы">ы</div>
-            <div class="key key3 letter" id="в">в</div>
-            <div class="key key4 letter" id="а">а</div>
-            <div class="key key4 letter" id="п">п</div>
-            <div class="key key5 letter" id="р">р</div>
-            <div class="key key5 letter" id="о">о</div>
-            <div class="key key3 letter" id="л">л</div>
-            <div class="key key2 letter" id="д">д</div>
-            <div class="key key1 letter" id="ж">ж</div>
-            <div class="key key1 letter" id="э">э</div>
-            <div class="key " style="width:86px; padding-right:12px; text-align:right;" id="Enter">Enter</div>
-        </div>
-        <div>
-            <div class="key " style="width:110px;  padding-left:12px; text-align:left;" id="Shift">Shift</div>
-            <div class="key key1 letter" id="я">я</div>
-            <div class="key key2 letter" id="ч">ч</div>
-            <div class="key key3 letter" id="с">с</div>
-            <div class="key key4 letter" id="м">м</div>
-            <div class="key key4 letter" id="и">и</div>
-            <div class="key key5 letter" id="т">т</div>
-            <div class="key key5 letter" id="ь">ь</div>
-            <div class="key key3 letter" id="б">б</div>
-            <div class="key key2 letter" id="ю">ю</div>
-            <div class="key key1" id=".">.</div>
-            <div class="key " style="width:109px; padding-right:12px; text-align:right;" id="Shift">Shift</div>
-        </div>
-        <div style="text-align:center;">
-            <div class="key " style="width:270px; " id="Space1"></div>
-        </div>
-
-    </div>
-
-    <div id="kb2" class="keyboard table" style="display:none;">
-        <div>
-            <div class="key letter">Ё</div>
-            <div class="key key1" id="!">!</div>
-            <div class="key key1" id='"'>"</div>
-            <div class="key key2" id="№">№</div>
-            <div class="key key3" id=";">;</div>
-            <div class="key key4" id="%">%</div>
-            <div class="key key4" id=":">:</div>
-            <div class="key key5" id="?">?</div>
-            <div class="key key3" id="*">*</div>
-            <div class="key key2" id="(">(</div>
-            <div class="key key1" id=")">)</div>
-            <div class="key key1" id="_">_</div>
-            <div class="key key1" id="+">+</div>
-            <div class="key" style="width:70px;">←</div>
-        </div>
-        <div>
-            <div class="key " style="width:70px; padding-left:12px; text-align:left;">Tab</div>
-            <div class="key key1 letter" id="Й">Й</div>
-            <div class="key key2 letter" id="Ц">Ц</div>
-            <div class="key key3 letter" id="У">У</div>
-            <div class="key key4 letter" id="К">К</div>
-            <div class="key key4 letter" id="Е">Е</div>
-            <div class="key key5 letter" id="Н">Н</div>
-            <div class="key key5 letter" id="Г">Г</div>
-            <div class="key key3 letter" id="Ш">Ш</div>
-            <div class="key key2 letter" id="Щ">Щ</div>
-            <div class="key key1 letter" id="З">З</div>
-            <div class="key key1 letter" id="Х">Х</div>
-            <div class="key key1 letter" id="Ъ">Ъ</div>
-            <div class="key" id="/">/</div>
-        </div>
-        <div>
-            <div class="key " style="width:83px; padding-left:12px; text-align:left;" id="Caps">Caps</div>
-            <div class="key key1 letter" id="Ф">Ф</div>
-            <div class="key key2 letter" id="Ы">Ы</div>
-            <div class="key key3 letter" id="В">В</div>
-            <div class="key key4 letter" id="А">А</div>
-            <div class="key key4 letter" id="П">П</div>
-            <div class="key key5 letter" id="Р">Р</div>
-            <div class="key key5 letter" id="О">О</div>
-            <div class="key key3 letter" id="Л">Л</div>
-            <div class="key key2 letter" id="Д">Д</div>
-            <div class="key key1 letter" id="Ж">Ж</div>
-            <div class="key key1 letter" id="Э">Э</div>
-            <div class="key " style="width:86px; padding-right:12px; text-align:right;" id="Enter">Enter</div>
-        </div>
-        <div>
-            <div class="key " style="width:110px;  padding-left:12px; text-align:left;" id="Shift">Shift</div>
-            <div class="key key1 letter" id="Я">Я</div>
-            <div class="key key2 letter" id="Ч">Ч</div>
-            <div class="key key3 letter" id="С">С</div>
-            <div class="key key4 letter" id="М">М</div>
-            <div class="key key4 letter" id="И">И</div>
-            <div class="key key5 letter" id="Т">Т</div>
-            <div class="key key5 letter" id="Ь">Ь</div>
-            <div class="key key3 letter" id="Б">Б</div>
-            <div class="key key2 letter" id="Ю">Ю</div>
-            <div class="key key1" id=",">,</div>
-            <div class="key " style="width:109px; padding-right:12px; text-align:right;" id="Shift">Shift</div>
-        </div>
-        <div style="text-align:center;">
-            <div class="key " style="width:270px; " id="Space2"></div>
         </div>
 
+        <div id="kb2" class="keyboard table" style="display:none;">
+            <div>
+                <div class="key letter">Ё</div>
+                <div class="key key1" id="!">!</div>
+                <div class="key key1" id='"'>"</div>
+                <div class="key key2" id="№">№</div>
+                <div class="key key3" id=";">;</div>
+                <div class="key key4" id="%">%</div>
+                <div class="key key4" id=":">:</div>
+                <div class="key key5" id="?">?</div>
+                <div class="key key3" id="*">*</div>
+                <div class="key key2" id="(">(</div>
+                <div class="key key1" id=")">)</div>
+                <div class="key key1" id="_">_</div>
+                <div class="key key1" id="+">+</div>
+                <div class="key" style="width:70px;">←</div>
+            </div>
+            <div>
+                <div class="key " style="width:70px; padding-left:12px; text-align:left;">Tab</div>
+                <div class="key key1 letter" id="Й">Й</div>
+                <div class="key key2 letter" id="Ц">Ц</div>
+                <div class="key key3 letter" id="У">У</div>
+                <div class="key key4 letter" id="К">К</div>
+                <div class="key key4 letter" id="Е">Е</div>
+                <div class="key key5 letter" id="Н">Н</div>
+                <div class="key key5 letter" id="Г">Г</div>
+                <div class="key key3 letter" id="Ш">Ш</div>
+                <div class="key key2 letter" id="Щ">Щ</div>
+                <div class="key key1 letter" id="З">З</div>
+                <div class="key key1 letter" id="Х">Х</div>
+                <div class="key key1 letter" id="Ъ">Ъ</div>
+                <div class="key" id="/">/</div>
+            </div>
+            <div>
+                <div class="key " style="width:83px; padding-left:12px; text-align:left;" id="Caps">Caps</div>
+                <div class="key key1 letter" id="Ф">Ф</div>
+                <div class="key key2 letter" id="Ы">Ы</div>
+                <div class="key key3 letter" id="В">В</div>
+                <div class="key key4 letter" id="А">А</div>
+                <div class="key key4 letter" id="П">П</div>
+                <div class="key key5 letter" id="Р">Р</div>
+                <div class="key key5 letter" id="О">О</div>
+                <div class="key key3 letter" id="Л">Л</div>
+                <div class="key key2 letter" id="Д">Д</div>
+                <div class="key key1 letter" id="Ж">Ж</div>
+                <div class="key key1 letter" id="Э">Э</div>
+                <div class="key " style="width:86px; padding-right:12px; text-align:right;" id="Enter">Enter</div>
+            </div>
+            <div>
+                <div class="key " style="width:110px;  padding-left:12px; text-align:left;" id="Shift">Shift</div>
+                <div class="key key1 letter" id="Я">Я</div>
+                <div class="key key2 letter" id="Ч">Ч</div>
+                <div class="key key3 letter" id="С">С</div>
+                <div class="key key4 letter" id="М">М</div>
+                <div class="key key4 letter" id="И">И</div>
+                <div class="key key5 letter" id="Т">Т</div>
+                <div class="key key5 letter" id="Ь">Ь</div>
+                <div class="key key3 letter" id="Б">Б</div>
+                <div class="key key2 letter" id="Ю">Ю</div>
+                <div class="key key1" id=",">,</div>
+                <div class="key " style="width:109px; padding-right:12px; text-align:right;" id="Shift">Shift</div>
+            </div>
+            <div style="text-align:center;">
+                <div class="key " style="width:270px; " id="Space2"></div>
+            </div>
+
+        </div>
     </div>
 </div>
 <div id="secret" style="visibility:hidden">@ViewBag.Current.TextToType</div>
