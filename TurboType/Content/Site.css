@@ -35,24 +35,18 @@ textarea {
 
 .stages {
     height: 200px;
-    background-color: #669297;
-    margin-top: 15px;
+    background-color: #383B43;
+    margin-top: 35px;
     margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding: 10px;
+    color: #ffffff;
+    border-radius: 7px;
 }
-.stage-capation{
-    text-align: center;
-    font-family:Impact;
-    padding:20px;
-    font-size:30px;
-}
+
 .stage-name {
     text-align: center;
-    font-family:Impact;
-    padding:20px;
-    font-size:60px;
-    border-bottom:1px solid gray;
-    border-top:1px solid gray;
 }
 
 .stage-complexity {
@@ -60,37 +54,60 @@ textarea {
 }
 
 .stage-start-btn {
-    width: 100%;
+    width:50%;
+    margin-left:25%;
+    margin-top: 20px;
+    background-color: #3CADD4;
+    border-radius: 15px;
+    border-style: none;
+    color: #ffffff;
 }
+.stage-start-btn:focus{
+    color:#ffffff;
+}
+    .stage-start-btn:hover {
+        background-color: #81D1EC;
+        color:white;
+    }
 
 .stage-tab-container {
     height: 80px;
+    padding-left: 17px;
+    padding-right: 17px;
 }
 
 .stage-tab {
+    margin-top: 15px;
     font-family: Verdana;
     font-size: 20px;
 }
 
     .stage-tab a {
-        background-color: #bf874c;
+        background-color: #3CADD4;
         height: 100%;
         vertical-align: middle;
+        border-radius: 7px;
+        color:white;
     }
 
+.login-btn{
+    width:100%;
+    background-color:#3CADD4;
+    color: #ffffff;
+    padding:5px;
+}
+
+.login-btn:hover {
+    background-color: #81D1EC;
+    color:#ffffff;
+}
+.login-btn:focus{
+    color:#ffffff;
+}
 .input-group-addon {
     min-width: 150px;
     text-align: left;
 }
-
-.btn-success {
-    background-color: #5FCEC0;
-    border-style: none;
-}
-
-    .btn-success:hover {
-        background-color: #77E6D7;
-    }
 
 .passing-stage {
     background-color: #1b3338;
@@ -99,45 +116,49 @@ textarea {
     border-left: 0;
     border-right: 0;
 }
-.keyboard-container{
-    background-color:#77e9ae;
-    border-bottom:1px solid gray;
-    padding:40px;
+
+.keyboard-container {
+    background-color: #77e9ae;
+    border-bottom: 1px solid gray;
+    padding: 40px;
 }
+
 .fluid {
     width: 100%;
 }
 
 .display {
-    padding:0 10px;
+    padding: 0 10px;
     margin: 10px auto;
     width: 752px;
     background-color: white;
     height: 50px;
     border: 2px solid gray;
 }
-.field{ 
-    margin:7.5px;
-    height:35px;    
+
+.field {
+    margin: 7.5px;
+    height: 35px;
 }
-.display span
-{
-    white-space:pre;
-    font-size:25px;
-    float:left;
-    display:inline-block;
+
+.display span {
+    white-space: pre;
+    font-size: 25px;
+    float: left;
+    display: inline-block;
 }
-.fCursor{
-    height:32px;
-    margin:auto 0;
-    line-height:50px;
-    float:left;
-    display:inline-block;
-    white-space:pre;
-    display:inline;
-    border-right:1px solid gray;
-    padding:0;
-    visibility:hidden;
+
+.fCursor {
+    height: 32px;
+    margin: auto 0;
+    line-height: 50px;
+    float: left;
+    display: inline-block;
+    white-space: pre;
+    display: inline;
+    border-right: 1px solid gray;
+    padding: 0;
+    visibility: hidden;
 }
 
 
@@ -160,24 +181,19 @@ textarea {
     line-height: 45px;
     border-radius: 3px;
     display: inline-block;
-    
     margin-top: 3px;
-
 }
 
 .key1 {
     background-color: #78e2aa;
-    
 }
 
 .key2 {
     background-color: #63e3ff;
-   
 }
 
 .key3 {
     background-color: #b0e86a;
-    
 }
 
 .key4 {
@@ -186,27 +202,31 @@ textarea {
 
 .key5 {
     background-color: #ffef7e;
-   
 }
 
-.not-done{
-    color:black;
-}
-.done{
-    color:darkgray;
+.not-done {
+    color: black;
 }
 
-.home-pic{
-    height:350px;
-    background: #EEE url("pics/home-pic-1.png") top  center   no-repeat;
+.done {
+    color: darkgray;
 }
-.home-1{
-    height:800px;
-    background-color:#eee;
+
+.home-pic {
+    height: 350px;
+    background: #EEE url("pics/home-pic-1.png") top center no-repeat;
+}
+
+.home-1 {
+    height: 800px;
+    background-color: #eee;
 }
 
 
-.header-aero-style{
-background-color:rgba(193, 111, 171, 0.29)
+.header-aero-style {
+    background-color: rgba(193, 111, 171, 0.29);
 }
-
+.social-buttons {
+    background-color: transparent;
+    border-style: none;
+}

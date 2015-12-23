@@ -33,9 +33,9 @@ else
         <div class="row" style="margin-top:20px;">
             <div class="tabbable">
                 <ul class="nav row text-center stage-tab-container">
-                    <li class="active col-xs-4 stage-tab"><a href="#tab1" style="color:black;" data-toggle="tab"><i class="fa fa-graduation-cap"></i> Обучение</a></li>
-                    <li class="col-xs-4 stage-tab"><a href="#tab2" style="color:black;" data-toggle="tab"><i class="fa fa-gamepad"></i> Соревнование</a></li>
-                    <li class="col-xs-4 stage-tab"><a href="#tab3" style="color:black;" data-toggle="tab"><i class="fa fa-keyboard-o"></i> Одиночная печать</a></li>
+                    <li class="active col-xs-4 stage-tab"><a href="#tab1" data-toggle="tab"><i class="fa fa-graduation-cap"></i> Обучение</a></li>
+                    <li class="col-xs-4 stage-tab"><a href="#tab2" data-toggle="tab"><i class="fa fa-gamepad"></i> Соревнование</a></li>
+                    <li class="col-xs-4 stage-tab"><a href="#tab3" data-toggle="tab"><i class="fa fa-keyboard-o"></i> Одиночная печать</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active stage-container" id="tab1">
@@ -45,7 +45,7 @@ else
                         {
                             <div class="col-xs-6 col-md-4 ">
                                 <div class="stages">
-                                    <h2 class="stage-capation">@stage.StageName</h2>
+                                    <h2 class="stage-name">@stage.StageName</h2>
                                     @{ int full = stage.Complexity; int empty = 5 - full;}
                                     <p class="stage-complexity">
                                         @while (full > 0)
@@ -61,7 +61,7 @@ else
                                     </p>
 
 
-                                    <button class="btn btn-warning stage-start-btn">Начать</button>
+                                    <button class="btn stage-start-btn">Начать</button>
 
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ else
                                         }
                                     </p>
 
-                                    <button class="btn btn-warning stage-start-btn">Начать</button>
+                                    <button class="btn stage-start-btn">Начать</button>
                                 </div>
                             </div>
                                         }
@@ -116,7 +116,7 @@ else
                                         }
                                     </p>
 
-                                    <a class="btn btn-warning stage-start-btn">Начать</a>
+                                    <a class="btn stage-start-btn">Начать</a>
                                 </div>
                             </div>
                                         }
