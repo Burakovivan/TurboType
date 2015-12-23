@@ -48,16 +48,17 @@ else
                                     <h2 class="stage-name">@stage.StageName</h2>
                                     @{ int full = stage.Complexity; int empty = 5 - full;}
                                     <p class="stage-complexity">
-                                        @while (full > 0)
-                                        {
-                                            <i class="fa fa-star-o"></i>
-                                            --full;
-                                        }
                                         @while (empty > 0)
                                         {
                                             <i class=" fa fa-star"></i>
                                             --empty;
                                         }
+                                        @while (full > 0)
+                                        {
+                                            <i class="fa fa-star-o"></i>
+                                            --full;
+                                        }
+                      
                                     </p>
 
 
