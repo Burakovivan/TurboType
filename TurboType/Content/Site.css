@@ -97,11 +97,9 @@ textarea {
     padding:5px;
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.login-btn:focus {
     background-color: #81D1EC;
-    color:#ffffff;
-}
-.login-btn:focus{
     color:#ffffff;
 }
 .input-group-addon {
@@ -224,9 +222,26 @@ textarea {
 
 
 .header-aero-style {
-    background-color: rgba(193, 111, 171, 0.29);
+    background-color: rgba( 191, 227,254, 0.6);
+    filter:blur(10px) grayscale(20%);
 }
 .social-buttons {
+    z-index:999;
     background-color: transparent;
     border-style: none;
+        /*border:2px solid transparent;*/
+}
+    .social-buttons:hover,
+    .social-buttons:focus {
+        
+    background-color: rgba( 191, 227,254, 0.3);
+    
+        /*border:2px solid white;*/
+    }
+
+.small-logo{
+    height:44px;
+    width:44px;
+    margin:-12px 2px;
+    
 }

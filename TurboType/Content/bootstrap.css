@@ -3826,7 +3826,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   text-decoration: none;
   color: #3CADD4;
   background-color:white;
-  border:1px solid #3CADD4;
+  /*border:1px solid #3CADD4;*/
 }
 
 .nav > li.disabled > a {
