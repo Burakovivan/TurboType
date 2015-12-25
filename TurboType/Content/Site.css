@@ -219,10 +219,8 @@ textarea {
     height: 800px;
     background-color: #eee;
 }
-
-
 .header-aero-style {
-    background-color: rgba( 191, 227,254, 0.6);
+    background-color: rgba( 0, 0,0, 0.7);
     filter:blur(10px) grayscale(20%);
 }
 .social-buttons {
@@ -231,17 +229,16 @@ textarea {
     border-style: none;
         /*border:2px solid transparent;*/
 }
+какойто из этих - контрастных
     .social-buttons:hover,
     .social-buttons:focus {
-        
     background-color: rgba( 191, 227,254, 0.3);
     
         /*border:2px solid white;*/
     }
-
 .small-logo{
     height:36px;
     width:36px;
     margin:-8px 5px;
-    
 }
+ 
