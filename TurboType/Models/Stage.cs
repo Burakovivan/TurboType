@@ -24,6 +24,7 @@ namespace TurboType.Models
         
         [Required]
         public int ThemeId { get; set; }
+        public string Advice { get; set; }
 
         public virtual Theme Theme { get; set; }
     }
