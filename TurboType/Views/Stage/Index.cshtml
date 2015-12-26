@@ -17,7 +17,7 @@
                 <span id="not-done" class="not-done">@ViewBag.Current.TextToType</span>
             </div>
         </div>
-        <div class="row" ></div>
+        <div class="row"></div>
         <div id="kb1" class="keyboard table">
             <div>
                 <div class="key letter">ё</div>
@@ -197,8 +197,7 @@
                 document.getElementsByClassName('not-done')[0].innerText.substring(1,
                 document.getElementsByClassName('not-done')[0].innerText.length);
 
-            if (document.getElementById('not-done').innerText.length > 0)
-            {
+            if (document.getElementById('not-done').innerText.length > 0) {
                 fadeLight(ch);
                 highLight(document.getElementById('not-done').innerText[0]);
             }
@@ -206,14 +205,12 @@
                 fadeLight(ch);
             }
         }
-        else
-        {
+        else {
             MakeRed(ch);
             setTimeout(MakeNormal, 75, ch);
         }
     }
-    function fadeLight(key)
-    {
+    function fadeLight(key) {
         if (key == " ") {
             document.getElementById("Space1").style.border = "1px solid #5c5b5b";
             document.getElementById("Space1").style.margin = "0px";
@@ -228,8 +225,7 @@
         document.getElementById(key).style.margin = "0px";
         document.getElementById(key).style.marginTop = "2px";
     }
-    function highLight(key)
-    {
+    function highLight(key) {
         if (key == " ") {
             document.getElementById("Space1").style.border = "2px solid white";
             document.getElementById("Space1").style.margin = "0px";
@@ -243,13 +239,21 @@
         document.getElementById(key).style.margin = "0px";
         document.getElementById(key).style.marginTop = "1px";
     }
-    function MakeRed(key)
-    {
-        document.getElementById(key).style.backgroundColor = "red";
+    function MakeRed(key) {
+        if (key == " ") {
+            document.getElementById("Space1").style.backgroundColor = "red";
+            document.getElementById("Space2").style.backgroundColor = "red";
+        } else {
+            document.getElementById(key).style.backgroundColor = "red";
+        }
     }
-    function MakeNormal(key)
-    {
-        document.getElementById(key).style.backgroundColor = document.getElementsByClassName("key")[0].style.backgroundColor;
+    function MakeNormal(key) {
+        if (key == " ") {
+            document.getElementById("Space1").style.backgroundColor = document.getElementsByClassName("key")[0].style.backgroundColor;
+            document.getElementById("Space2").style.backgroundColor = document.getElementsByClassName("key")[0].style.backgroundColor;
+        } else {
+            document.getElementById(key).style.backgroundColor = document.getElementsByClassName("key")[0].style.backgroundColor;
+        }
     }
 
 

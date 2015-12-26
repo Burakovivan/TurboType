@@ -32,9 +32,9 @@ namespace TurboType.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -72,6 +72,16 @@ namespace TurboType.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+
+            using (TTContext db = new TTContext())
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    var id = User.Identity.GetUserId();
+                    ViewBag.User = db.Users.First(u => u.Id == id);
+                }
+            }
+
             return View(model);
         }
 
@@ -331,7 +341,7 @@ namespace TurboType.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -382,6 +392,6 @@ namespace TurboType.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

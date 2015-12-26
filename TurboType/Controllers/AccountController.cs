@@ -151,7 +151,7 @@ namespace TurboType.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Login = model.Login  };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Login = model.Login, FirstName = model.FirstName, LastName = model.LastName, Patronymic = model.Patronymic };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
