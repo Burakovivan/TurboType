@@ -26,8 +26,6 @@ textarea {
     box-shadow: 0px 10px 20px #000;
 }
 
-
-
 .stage-container {
     margin-top: 20px;
     background-color: transparent;
@@ -68,6 +66,8 @@ textarea {
     .stage-start-btn:hover {
         background-color: #81D1EC;
         color:white;
+            /*background-color: #ffffff;
+    color: #3CADD4;*/
     }
 
 .stage-tab-container {
@@ -116,7 +116,7 @@ textarea {
 }
 
 .keyboard-container {
-    background-color: #77e9ae;
+    background-color:  #D7EBFF /*#D0E8FE #77e9ae*/;
     border-bottom: 1px solid gray;
     padding: 40px;
 }
@@ -132,6 +132,7 @@ textarea {
     background-color: white;
     height: 50px;
     border: 2px solid gray;
+    border-radius: 7px;
 }
 
 .field {
@@ -161,19 +162,20 @@ textarea {
 
 
 .keyboard {
-    background-color: #FFFFFF;
+    background-color:#E1D9D9/*ECF2FA*/;
     height: 267px;
     width: 752px;
     padding: 9px;
     border-radius: 0.7em;
     margin: 10px auto;
+    box-shadow: 0px 10px 20px #000;
 }
 
 .key {
     width: 47px;
     height: 47px;
     border: 1px solid #5c5b5b;
-    background-color: lightgray;
+    background-color: #E9BCFE;
     color: black;
     text-align: center;
     line-height: 45px;
@@ -183,23 +185,23 @@ textarea {
 }
 
 .key1 {
-    background-color: #78e2aa;
+    background-color: #A3CDFF;
 }
 
 .key2 {
-    background-color: #63e3ff;
+    background-color: #9BF4FE;
 }
 
 .key3 {
-    background-color: #b0e86a;
+    background-color: #B7F59E;
 }
 
 .key4 {
-    background-color: #ffc07e;
+    background-color: #FFD17D;
 }
 
 .key5 {
-    background-color: #ffef7e;
+    background-color: #FDFF8B;
 }
 
 .not-done {
@@ -229,16 +231,17 @@ textarea {
     border-style: none;
         /*border:2px solid transparent;*/
 }
-какойто из этих - контрастных
-    .social-buttons:hover,
-    .social-buttons:focus {
-    background-color: rgba( 191, 227,254, 0.3);
+/*.social-buttons:hover,
+.social-buttons:focus {
+background-color: white;
+color: #3CADD4;*/
+/*rgba( 191, 227,254, 0.3)*/
     
         /*border:2px solid white;*/
-    }
+    /*}*/
 .small-logo{
-    height:36px;
-    width:36px;
-    margin:-8px 5px;
+    height:30px;
+    width:30px;
+    margin:-4px 5px;
+    margin-right: 15px;
 }
- 
