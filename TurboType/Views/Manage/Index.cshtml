@@ -5,54 +5,66 @@
 
 <div>
     <div class="container manage-container">
-        <hr />
-        <h1 class="font-h1">Личный кабинет</h1>
-        <hr />
-        <div class="col-xs-8">
-            <div class="level-container" style="display:inline-block;">
-                <span class="level-text">@(ViewBag.User.Rating % 200) из 200</span>
-                <div class="level-num" style="display:inline; float:right;">@ViewBag.User.Level</div>
-                <div class="rating-bar">
-                    <div class="rating-1" style="width:@(ViewBag.User.Rating % 200 /2)%"></div>
+        <hr style="margin:0 -15px;" />
+        <h1 class="font-h1 text-center" >Личный кабинет</h1>
+        <hr style="margin:20px -15px;"/>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="level-container" style="display:inline-block;">
+                    <span class="level-text">@(ViewBag.User.Rating % 200) из 200</span>
+                    <div class="level-num" style="display:inline; float:right;">@ViewBag.User.Level</div>
+                    <div class="rating-bar">
+                        <div class="rating-1" style="width:@(ViewBag.User.Rating % 200 /2)%"></div>
+                    </div>
                 </div>
-            </div>
-            <br/>
-            <br/>
-            @using (Ajax.BeginForm("ChangeProfile", "Manage", new AjaxOptions()))
+                <br />
+                <br />
+                @using (Ajax.BeginForm("ChangeProfile", "Manage", new AjaxOptions()))
             {
-            <div class="form-horizontal manage-input-container">
+                    <div class="form-horizontal manage-input-container ">
 
-                <div class="input-group form-group">
-                    <span class="input-group-addon">Логин</span>
-                    <input readonly="readonly" class="form-control" value="@ViewBag.User.Login" />
-                </div>
-                <div class="input-group form-group">
-                    <span class="input-group-addon">Фамилия</span>
-                    <input class="form-control" value="@ViewBag.User.LastName" name="LastName" />
-                </div>
-                <div class="input-group form-group">
-                    <span class="input-group-addon">Имя</span>
-                    <input class="form-control" value="@ViewBag.User.FirstName"name="FirstName" />
-                </div>
-                <div class="input-group form-group">
-                    <span class="input-group-addon">Отчество</span>
-                    <input class="form-control" value="@ViewBag.User.Patronymic"name="Patronymic" />
-                </div>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon">Логин</span>
+                            <input readonly="readonly" class="form-control" value="@ViewBag.User.Login" />
+                        </div>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon">Фамилия</span>
+                            <input class="form-control" value="@ViewBag.User.LastName" name="LastName" />
+                        </div>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon">Имя</span>
+                            <input class="form-control" value="@ViewBag.User.FirstName" name="FirstName" />
+                        </div>
+                        <div class="input-group form-group">
+                            <span class="input-group-addon">Отчество</span>
+                            <input class="form-control" value="@ViewBag.User.Patronymic" name="Patronymic" />
+                        </div>
 
-                <button class="btn change-btn" style="float:right;">Изменить</button>
-                <a href="Manage/ChangePassword" class="btn btn-default" style="float:right;">Изменить пароль</a>
+                        <button class="btn change-btn" style="float:right;">Внести изменения</button>
+
+                    </div>
+                }
 
             </div>
-            }
-        </div>
-        <div class="container col-xs-4">
 
-            <div style="display:inline-block;" class="user-photo">
-                <img class=" thumbnail user-photo" src="~/Photos/@ViewBag.User.Photo" />
+            <div class="container col-xs-4">
+                @if (ViewBag.User.Photo != null)
+            {
+                    <div style="display:inline-block;" class="user-photo">
+                        <img class="thumbnail user-photo" src="~/Photos/@ViewBag.User.Photo" />
+                    </div>
+                }
+                else
+                {
+                    <div style="display:inline-block;" class="user-photo">
+                        <img class="thumbnail user-photo" src="~/Content/pics/default.png" style="width:70%;" />
+                    </div>
+                }
             </div>
         </div>
-
-        
+        <hr style="margin:20px -15px;"/>
+        <a href="Manage/ChangePassword" class="btn btn-default" style="float:right;">Изменить пароль</a>
+    
 
 
 

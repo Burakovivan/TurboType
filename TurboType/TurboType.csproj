@@ -679,6 +679,7 @@
     <Content Include="Content\js\bootstrap.js" />
     <Content Include="Content\js\bootstrap.min.js" />
     <Content Include="Content\js\npm.js" />
+    <Content Include="Content\pics\default.png" />
     <Content Include="Content\pics\home-pic-1.png" />
     <Content Include="Content\pics\small-logo.png" />
     <Content Include="favicon.ico" />
