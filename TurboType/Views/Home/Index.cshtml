@@ -45,7 +45,7 @@ else
                         {
                             <div class="col-xs-6 col-md-4 ">
                                 <div class="stages">
-                                    <h2 class="stage-name">@stage.StageName</h2>
+                                    <h2 class="stage-name"><center>@stage.StageName</center></h2>
                                     @{ int full = stage.Complexity; int empty = 5 - full;}
                                     <p class="stage-complexity">
                                         @while (empty > 0)
@@ -76,18 +76,18 @@ else
                 {
                             <div class="col-xs-6 col-md-4 ">
                                 <div class="stages">
-                                    <h2 class="stage-capation">@stage.StageName</h2>
+                                    <h2 class="stage-capation"><center>@stage.StageName</center></h2>
                                     @{ int full = stage.Complexity; int empty = 5 - full;}
                                     <p class="stage-complexity">
-                                        @while (full > 0)
-                                        {
-                                            <i class=" fa fa-star-o"></i>
-                                            --full;
-                                        }
                                         @while (empty > 0)
                                         {
                                             <i class=" fa fa-star"></i>
                                             --empty;
+                                        }
+                                        @while (full > 0)
+                                        {
+                                            <i class="fa fa-star-o"></i>
+                                            --full;
                                         }
                                     </p>
 
@@ -102,18 +102,18 @@ else
                 {
                             <div class="col-xs-6 col-md-4 ">
                                 <div class="stages">
-                                    <h2 class="stage-capation">@stage.StageName</h2>
+                                    <h2 class="stage-capation"><center>@stage.StageName</center></h2>
                                     @{ int full = stage.Complexity; int empty = 5 - full;}
                                     <p class="stage-complexity">
-                                        @while (full > 0)
-                                        {
-                                            <i class=" fa fa-star-o"></i>
-                                            --full;
-                                        }
                                         @while (empty > 0)
                                         {
                                             <i class=" fa fa-star"></i>
                                             --empty;
+                                        }
+                                        @while (full > 0)
+                                        {
+                                            <i class="fa fa-star-o"></i>
+                                            --full;
                                         }
                                     </p>
 
