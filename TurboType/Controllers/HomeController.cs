@@ -37,5 +37,25 @@ namespace TurboType.Controllers
 
             return View();
         }
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase upload)
+        {
+            if (upload != null)
+            {
+                using (TTContext db = new TTContext())
+                {
+                    lock (db)
+                    {
+                        // получаем имя файла
+                        string fileName = System.IO.Path.GetFileName(upload.FileName);
+                        // сохраняем файл в папку Files в проекте
+                        upload.SaveAs(Server.MapPath("~/Photos/" + fileName));
+                        db.Users.Where(x => x.Login == User.Identity.Name).First().Photo = fileName;
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return RedirectToAction("Index", "Manage");
+        }
     }
 }
