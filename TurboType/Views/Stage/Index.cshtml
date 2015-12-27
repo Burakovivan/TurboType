@@ -3,12 +3,35 @@
     ViewBag.Title = "Index";
 }
 <link href="~/Content/Site.css" rel="stylesheet" />
+
+<div class="white-box" id="result-box">
+    <div class="grey-line">
+        <h2>Результат урока</h2>
+        <p class="text-p">Скорость печати:<span class="text-span" id="speed"> &nbsp 12</span> знаков/мин</p>
+        <p class="text-p">Количество ошибок:<span class="text-span" id="mistakes"> &nbsp 1</span></p>
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="../../Home" id="next-btn" style="width:100%;margin:0; " class="btn stage-start-btn">Ко всем урокам</a>
+            </div>
+            <div class="col-xs-6">
+                <a href="../../Stage/Index/@(ViewBag.Current.StageId +1)" style="width:100%; margin:0;" id="next-btn" class="btn stage-start-btn">Далее</a>
+                <a href="../../Stage/Index/@(ViewBag.Current.StageId)" style="width:100%; margin:0; display:none;" id="again-btn" class="btn stage-start-btn">Заново</a>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 <div style="height:50px;"></div>
 
-<div class="stage-name">@ViewBag.Current.StageName</div>
+<div class="">
+    <p class="stage-name">@ViewBag.Current.StageName</p>
+    <p class="stage-name">Максимум ошибок: @ViewBag.Current.MaximalMistakes</p>
+</div>
 
 <div class="keyboard-container">
     <div class="container ">
+
         <div class="display">
 
             <div class="field">
@@ -18,6 +41,7 @@
             </div>
         </div>
         <div class="row"></div>
+
         <div id="kb1" class="keyboard table">
             <div>
                 <div class="key letter">ё</div>
@@ -157,19 +181,40 @@
 </div>
 <div id="secret" style="visibility:hidden">@ViewBag.Current.TextToType</div>
 <script>
+    var maxMist = Number(@ViewBag.Current.MaximalMistakes);
+    var minSpeed = Number(@ViewBag.Current.MinimalSpeed);
     var timeSpan = Number(0);
     var isTyping = "f";
     var Mistakes = 0;
     var speed = 0;
 
     function ShowResult() {
-        alert(timeSpan);
-        speed = (document.getElementById('done').innerText.length/timeSpan)*600;
-        alert(speed);
+
+        speed = (document.getElementById('done').innerText.length / timeSpan) * 600;
+
+        if (speed >= minSpeed && Mistakes <= maxMist) {
+            document.getElementById("speed").innerHTML = " &nbsp " + Math.round(speed);
+            document.getElementById("mistakes").innerHTML = " &nbsp " + Mistakes;
+            document.getElementById("result-box").style.display = "block";
+        }
+        else {
+            document.getElementById("speed").innerHTML = " &nbsp " + Math.round(speed);
+            document.getElementById("mistakes").innerHTML = " &nbsp " + Mistakes;
+
+            if (speed < minSpeed)
+            { document.getElementById("speed").style.color = "red"; }
+
+            if (maxMist < mistakes)
+            { document.getElementById("mistakes").style.color = "red"; }
+
+            document.getElementById("next-btn").innerText = "Заново";
+            document.getElementById("next-btn").style.display = "none";
+            document.getElementById("again-btn").style.display = "block";
+            document.getElementById("result-box").style.display = "block";
+        }
     }
     function timer() {
-        if (isTyping == "t")
-        {
+        if (isTyping == "t") {
             timeSpan = timeSpan + 1;
         }
     };
@@ -210,7 +255,7 @@
 
 
         if (document.getElementById('not-done').innerText[0] == ch) {
-            
+
             if (isTyping == "f" && document.getElementById('done').innerText == "")
             { isTyping = "t"; }
 
@@ -220,8 +265,7 @@
                 document.getElementsByClassName('not-done')[0].innerText.substring(1,
                 document.getElementsByClassName('not-done')[0].innerText.length);
 
-            if (isTyping == "t" && document.getElementById('not-done').innerText == "")
-            {
+            if (isTyping == "t" && document.getElementById('not-done').innerText == "") {
                 isTyping = "f";
                 ShowResult();
             }

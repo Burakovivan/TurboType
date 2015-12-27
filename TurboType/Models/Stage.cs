@@ -21,7 +21,13 @@ namespace TurboType.Models
         
         [Required]
         public byte Complexity { get; set; }
-        
+
+        [Required]
+        public int MaximalMistakes { get; set; }
+
+        [Required]
+        public int MinimalSpeed { get; set; }
+
         [Required]
         public int ThemeId { get; set; }
         public string Advice { get; set; }

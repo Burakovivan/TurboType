@@ -13,18 +13,23 @@ namespace TurboType.Controllers
         [HttpGet]
         public ActionResult Index(int id)
         {
-            if(id>-1)
-            //to do .....
-            using (TTContext db = new TTContext())
+            if (id > -1)
             {
-                ViewBag.Current = db.Stages.FirstOrDefault(st => st.StageId == id);
+
+                using (TTContext db = new TTContext())
+                {
+                    if (db.Stages.Select(s => s.StageId).Contains(id))
+                        ViewBag.Current = db.Stages.FirstOrDefault(st => st.StageId == id);
+                    else  return RedirectToAction("../Home/Index");
+                }
             }
 
-                return View();
-         
-                
+
+            return View();
+
+
         }
 
-        
+
     }
 }
