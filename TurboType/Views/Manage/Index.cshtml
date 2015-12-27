@@ -42,6 +42,19 @@
                 <button class="btn change-btn" style="float:right;">Изменить</button>
                 <a href="Manage/ChangePassword" class="btn btn-default" style="float:right;">Изменить пароль</a>
 
+                @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="row">
+                        <div class="col-xs-12  order-text-overflow">
+                            <input type="file" class="btn btn-block btn-default order-text-overflow" name="upload" accept="image/*,image/jpeg" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" style="float:right;" class="btn btn-success btn-block order-text-overflow">Загрузить выбранное фото<i class="fa fa-upload"></i></button>
+                        </div>
+
+                    </div> }
             </div>
             }
         </div>
