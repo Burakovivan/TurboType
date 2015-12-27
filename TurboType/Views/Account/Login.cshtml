@@ -73,8 +73,8 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <div class="col-md-12">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(m => m.Login, new { @class = "form-control", @placeholder = "Login" })
+                        @Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
@@ -100,15 +100,17 @@
                     </div>
                 </div>
 
-                <div>
-                    <label class="col-md-12 text-center">Войти через</label>
-                    <hr style="margin:5px 0;" />
-                    <div class="row text-center">
-                        <button href="#" class="btn btn-default social-buttons"><i class="fa fa-facebook-square fa-2x" style="color:rgb(56,100,163)"></i></button>
-                        <button href="#" class="btn btn-default social-buttons"><i class="fa fa-twitter fa-2x" style="color:rgb(94,169,211)"></i></button>
-                        <button href="#" class="btn btn-default social-buttons"><i class="fa fa-vk fa-2x" style="color:rgb(76,117,163)"></i></button>
-                    </div>
-                </div>
+                @*<div>
+        <label class="col-md-12 text-center">Войти через</label>
+        <hr style="margin:5px 0;" />
+        <div class="row text-center">
+
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            <button href="#" class="btn btn-default social-buttons"><i class="fa fa-facebook-square fa-2x" style="color:rgb(56,100,163)"></i></button>
+            <button href="#" class="btn btn-default social-buttons"><i class="fa fa-twitter fa-2x" style="color:rgb(94,169,211)"></i></button>
+            <button href="#" class="btn btn-default social-buttons"><i class="fa fa-vk fa-2x" style="color:rgb(76,117,163)"></i></button>
+        </div>
+    </div>*@
             }
         </div>
     </div>

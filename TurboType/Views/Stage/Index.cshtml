@@ -157,6 +157,23 @@
 </div>
 <div id="secret" style="visibility:hidden">@ViewBag.Current.TextToType</div>
 <script>
+    var timeSpan = Number(0);
+    var isTyping = "f";
+    var Mistakes = 0;
+    var speed = 0;
+
+    function ShowResult() {
+        alert(timeSpan);
+        speed = (document.getElementById('done').innerText.length/timeSpan)*600;
+        alert(speed);
+    }
+    function timer() {
+        if (isTyping == "t")
+        {
+            timeSpan = timeSpan + 1;
+        }
+    };
+    setInterval(timer, 100);
 
     document.onload = new function () { highLight(document.getElementsByClassName('not-done')[0].innerText[0], "Caps"); }
 
@@ -190,12 +207,24 @@
         //        fadeLight(ch);
         //    }
         //}
+
+
         if (document.getElementById('not-done').innerText[0] == ch) {
+            
+            if (isTyping == "f" && document.getElementById('done').innerText == "")
+            { isTyping = "t"; }
+
 
             document.getElementsByClassName('done')[0].innerText += ch;
             document.getElementsByClassName('not-done')[0].innerText =
                 document.getElementsByClassName('not-done')[0].innerText.substring(1,
                 document.getElementsByClassName('not-done')[0].innerText.length);
+
+            if (isTyping == "t" && document.getElementById('not-done').innerText == "")
+            {
+                isTyping = "f";
+                ShowResult();
+            }
 
             if (document.getElementById('not-done').innerText.length > 0) {
                 fadeLight(ch);
@@ -206,6 +235,7 @@
             }
         }
         else {
+            Mistakes += 1;
             MakeRed(ch);
             setTimeout(MakeNormal, 75, ch);
         }
