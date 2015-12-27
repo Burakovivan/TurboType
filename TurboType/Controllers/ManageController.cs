@@ -341,6 +341,21 @@ namespace TurboType.Controllers
             base.Dispose(disposing);
         }
 
+        [HttpPost]
+        public ActionResult ChangeProfile(string LastName, string FirstName, string Patronymic)
+        {
+            using (TTContext db = new TTContext())
+            {
+                string id = User.Identity.GetUserId();
+                var user = db.Users.FirstOrDefault(x => x.Id == id);
+                user.LastName = LastName;
+                user.FirstName = FirstName;
+                user.Patronymic = Patronymic;
+                db.SaveChanges();
+                return RedirectToAction("Index", "Manage");
+            }
+        }
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

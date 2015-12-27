@@ -62,7 +62,7 @@ namespace TurboType.Models
     {
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Номер телефона")]
         public string Number { get; set; }
     }
 
