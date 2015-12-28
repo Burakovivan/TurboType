@@ -6,8 +6,8 @@
 <div>
     <div class="container manage-container">
         <hr style="margin:0 -15px;" />
-        <h1 class="font-h1 text-center" >Личный кабинет</h1>
-        <hr style="margin:20px -15px;"/>
+        <h1 class="font-h1 text-center">Личный кабинет</h1>
+        <hr style="margin:20px -15px;" />
         <div class="row">
             <div class="col-xs-8">
                 <div class="level-container" style="display:inline-block;">
@@ -39,95 +39,112 @@
                             <span class="input-group-addon">Отчество</span>
                             <input class="form-control" value="@ViewBag.User.Patronymic" name="Patronymic" />
                         </div>
+                        <a href="Manage/ChangePassword" class="btn btn-default" style="margin-left:-15px;">Изменить пароль  <i class="fa fa-key"></i></a>
 
-                        <button class="btn change-btn" style="float:right;">Внести изменения</button>
+                        <button class="btn change-btn" style="float:right;">Внести изменения <i class=" fa fa-check-circle-o"></i></button>
 
                     </div>
                 }
 
-                @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                {
-                    <div class="row">
-                        <div class="col-xs-12  order-text-overflow">
-                            <input type="file" class="btn btn-block btn-default order-text-overflow" name="upload" accept="image/*,image/jpeg" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <button type="submit" style="float:right;" class="btn btn-success btn-block order-text-overflow">Загрузить выбранное фото<i class="fa fa-upload"></i></button>
-                        </div>
 
-                    </div> }
             </div>
-
-            <div class="container col-xs-4">
-                @if (ViewBag.User.Photo != null)
+            @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @id="photo-form"}))
             {
-                    <div style="display:inline-block;" class="user-photo">
-                        <img class="thumbnail user-photo" src="~/Photos/@ViewBag.User.Photo" />
-                    </div>
-                }
-                else
-                {
-                    <div style="display:inline-block;" class="user-photo">
-                        <img class="thumbnail user-photo" src="~/Content/pics/default.png" style="width:70%;" />
-                    </div>
-                }
-            </div>
+
+
+
+
+                <div class="container col-xs-4">
+                    @if (ViewBag.User.Photo != null)
+                    {
+                        <div class="user-photo">
+                            <img class="thumbnail user-photo" src="~/Photos/@ViewBag.User.Photo" />
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="user-photo">
+                            <img class="thumbnail user-photo" src="~/Content/pics/default.png" style="width:70%;" />
+                        </div>
+                    }
+                    <input type="file" class="" name="upload" style="visibility:hidden" id="photo-btn"  accept="image/*,image/jpeg" />
+
+                    <center><a  id="submit-btn" class="btn change-btn" style="margin:0 auto;">Загрузить новое фото<i class="fa fa-upload"></i></a></center>
+
+                </div>
+            }
         </div>
-        <hr style="margin:20px -15px;"/>
-        <a href="Manage/ChangePassword" class="btn btn-default" style="float:right;">Изменить пароль</a>
-    
-
-
+        <hr style="margin:20px -15px;" />
 
     </div>
 
-    @*
-        Phone Numbers can used as a second factor of verification in a two-factor authentication system.
 
-         See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
-            for details on setting up this ASP.NET application to support two-factor authentication using SMS.
 
-         Uncomment the following block after you have set up two-factor authentication
-    *@
-    @*
-        <dt>Phone Number:</dt>
-        <dd>
-            @(Model.PhoneNumber ?? "None") [
-            @if (Model.PhoneNumber != null)
-            {
-                @Html.ActionLink("Change", "AddPhoneNumber")
-                @: &nbsp;|&nbsp;
-                @Html.ActionLink("Remove", "RemovePhoneNumber")
-            }
-            else
-            {
-                @Html.ActionLink("Add", "AddPhoneNumber")
-            }
-            ]
-        </dd>
-    *@
 
-    @*@if (Model.TwoFactor)
+
+
+
+
+
+</div>
+
+<script>
+
+    document.getElementById('photo-btn').onchange =  function () {
+
+        document.getElementById('photo-form').submit();
+    }
+    document.getElementById("submit-btn").onclick = function()  {
+        document.getElementById("photo-btn").click();
+    }
+    
+
+</script>
+@*
+    Phone Numbers can used as a second factor of verification in a two-factor authentication system.
+
+     See <a href="http://go.microsoft.com/fwlink/?LinkId=403804">this article</a>
+        for details on setting up this ASP.NET application to support two-factor authentication using SMS.
+
+     Uncomment the following block after you have set up two-factor authentication
+*@
+@*
+    <dt>Phone Number:</dt>
+    <dd>
+        @(Model.PhoneNumber ?? "None") [
+        @if (Model.PhoneNumber != null)
         {
-            using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <text>Enabled
-                <input type="submit" value="Disable" class="btn btn-link" />
-                </text>
-            }
+            @Html.ActionLink("Change", "AddPhoneNumber")
+            @: &nbsp;|&nbsp;
+            @Html.ActionLink("Remove", "RemovePhoneNumber")
         }
         else
         {
-            using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <text>Disabled
-                <input type="submit" value="Enable" class="btn btn-link" />
-                </text>
-            }
-        }*@
+            @Html.ActionLink("Add", "AddPhoneNumber")
+        }
+        ]
+    </dd>
+*@
+
+@*@if (Model.TwoFactor)
+    {
+        using (Html.BeginForm("DisableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <text>Enabled
+            <input type="submit" value="Disable" class="btn btn-link" />
+            </text>
+        }
+    }
+    else
+    {
+        using (Html.BeginForm("EnableTwoFactorAuthentication", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <text>Disabled
+            <input type="submit" value="Enable" class="btn btn-link" />
+            </text>
+        }
+    }*@
 
 </div>

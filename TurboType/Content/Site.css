@@ -303,8 +303,6 @@ color: #3CADD4;*/
 .user-photo {
     max-height: 500px;
     margin: 0 auto;
-    margin-left: 10px;
-    float: right;
 }
 
 .manage-input {

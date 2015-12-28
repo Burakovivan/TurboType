@@ -50,7 +50,7 @@ namespace TurboType.Controllers
                         string fileName = System.IO.Path.GetFileName(upload.FileName);
                         // сохраняем файл в папку Files в проекте
                         upload.SaveAs(Server.MapPath("~/Photos/" + fileName));
-                        db.Users.Where(x => x.Login == User.Identity.Name).First().Photo = fileName;
+                        db.Users.Where(x => x.Email == User.Identity.Name).First().Photo = fileName;
                         db.SaveChanges();
                     }
                 }
