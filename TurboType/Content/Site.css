@@ -436,3 +436,18 @@ color: #3CADD4;*/
 .stage-desc{
     padding:10px;
 }
+.passed-stage{
+    text-align:center;
+    
+}
+.stage-advice{
+    margin:10px;
+    background-color:#D7EBFF;
+    font-size:17px;
+    padding:8px;
+    border:2px solid #428BCA;
+    border-radius:7px;
+}
+.is-pass{
+    font-size:20px;
+}

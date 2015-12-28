@@ -19,7 +19,19 @@ namespace TurboType.Controllers
                 using (TTContext db = new TTContext())
                 {
                     if (db.Stages.Select(s => s.StageId).Contains(id))
+                    {
                         ViewBag.Current = db.Stages.FirstOrDefault(st => st.StageId == id);
+                        if (db.PassedStages.Where(p => p.User.Email == User.Identity.Name && p.Stage.StageId == id).Count() > 0)
+                        {
+                            ViewBag.IsPass = true;
+                            ViewBag.Passed = db.PassedStages.Single(p => p.User.Email == User.Identity.Name && p.Stage.StageId == id);
+                        }
+                        else
+                        {
+                            ViewBag.IsPass = false;
+                        }
+
+                    }
                     else return RedirectToAction("Index", "Home");
                 }
             }
@@ -30,7 +42,7 @@ namespace TurboType.Controllers
 
         }
 
-        public ActionResult SubmitStageResult(int speed, int mistakes, int index, int isNext)
+        public ActionResult SubmitStageResult(int speed, int mistakes, int index, int isNext, int rating)
         {
             if (isNext == 1)
             {
@@ -38,7 +50,7 @@ namespace TurboType.Controllers
                 {
                     PassedStage cur = new PassedStage();
                     int minSpeed = db.Stages.First(s => s.StageId == index).MinimalSpeed;
-                    cur.Rating = (int)((speed - minSpeed) * 0.7) + 150 - 15 * mistakes;
+                    cur.Rating = rating;
                     cur.StageId = index;
                     cur.TimeOfPassage = DateTime.Now;
                     cur.UserId = db.Users.Single(user => user.Email == User.Identity.Name).Id;
@@ -47,7 +59,7 @@ namespace TurboType.Controllers
                     {
                         if (db.PassedStages.Where(p => p.StageId == cur.StageId && p.UserId == cur.UserId).First().Rating < cur.Rating)
                         {
-                            db.Users.Single(user => user.Email == User.Identity.Name).Rating += db.PassedStages.Where(p => p.StageId == cur.StageId && p.UserId == cur.UserId).First().Rating - cur.Rating;
+                            db.Users.Single(user => user.Email == User.Identity.Name).Rating += cur.Rating - db.PassedStages.Where(p => p.StageId == cur.StageId && p.UserId == cur.UserId).First().Rating;
                             db.PassedStages.Where(p => p.StageId == cur.StageId && p.UserId == cur.UserId).First().Rating = cur.Rating;
                         }
                     }
@@ -58,7 +70,7 @@ namespace TurboType.Controllers
                     }
 
 
-                        db.SaveChanges();
+                    db.SaveChanges();
 
                     if (db.Stages.Select(s => s.StageId).Contains(index + 1))
                         return RedirectToAction("Index/" + (index + 1), "Stage");

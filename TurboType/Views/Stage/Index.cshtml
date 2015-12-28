@@ -10,11 +10,13 @@
     <input name="isNext" style="display:none;" value="0" />
     <input name="speed" style="display:none;" value="0" />
     <input name="mistakes" style="display:none;" value="0" />
+    <input name="rating" style="display:none;" value="0" />
     <div class="white-box" id="result-box">
         <div class="grey-line">
             <h2>Результат урока</h2>
             <p class="text-p">Скорость печати:<span class="text-span" id="speed"> &nbsp 12</span> знаков/мин</p>
             <p class="text-p">Количество ошибок:<span class="text-span" id="mistakes"> &nbsp 1</span></p>
+            <p class="text-p">Рейтинг:<span class="text-span" id="rating"> &nbsp 1</span></p>
             <div class="row">
                 <div class="col-xs-6">
                     <a href="../../Home" id="all-btn" style="width:100%;margin:0; " class="btn stage-start-btn">Ко всем урокам</a>
@@ -29,10 +31,43 @@
         </div>
     </div>
 }
+    <div class="white-box" style="display:block; height:inherit;" id="start-box">
+        <div class="grey-line">
+            <div class="stage-name">Урок @ViewBag.Current.StageId: @ViewBag.Current.StageName</div>
+            <div class="passed-stage">
+                @{ int full = ViewBag.Current.Complexity; int empty = 5 - full;}
+                <span>Сложность</span><p class="stage-complexity">
+                    @while (empty > 0)
+                    {
+                        <i class=" fa fa-star"></i>
+                        --empty;
+                    }
+                    @while (full > 0)
+                    {
+                        <i class="fa fa-star-o"></i>
+                        --full;
+                    }
+
+                </p>
+                @if (!ViewBag.IsPass)
+                {
+                    <span class="is-pass">Не пройден <i class="fa fa-pencil" style="color:red;"></i></span>
+                }
+                else
+                {
+                    <span class="is-pass">Пройдено с рейтингом @ViewBag.Passed.Rating<i class="fa fa-check" style="color:green;"></i></span>
+                }
+            </div>
+            <div class="stage-advice ">@ViewBag.Current.Advice</div><div class="passed-stage">
+            <button class="btn login-btn"  onclick="document.getElementById('start-box').style.display = 'none';">Начать</button>
+                
+                </div>
+            </div>
+    </div>
 <div style="height:50px;"></div>
 
 <div class="">
-    <div class="stage-name">Урок @ViewBag.Current.StageId: @ViewBag.Current.StageName</div>
+    
     <div class="container ">
         <div class="col-xs-4 stage-desc">
             <div class="">Максимум ошибок: @ViewBag.Current.MaximalMistakes</div>
@@ -205,6 +240,7 @@
     var isTyping = "f";
     var Mistakes = 0;
     var speed = 0;
+    var rating = 0;
 
     function ShowResult() {
 
@@ -214,11 +250,14 @@
             document.getElementById("speed").innerHTML = " &nbsp " + Math.round(speed);
             document.getElementById("mistakes").innerHTML = " &nbsp " + Mistakes;
 
-
             document.getElementsByName("speed")[0].value = Math.round(speed);
-            document.getElementsByName("mistakes")[0].value = Mistakes;
 
+            document.getElementsByName("mistakes")[0].value = Mistakes;
+            document.getElementsByName("rating")[0].value = Math.round((speed - minSpeed) * 0.7 + 150 - 15 * Mistakes);
             document.getElementsByName('isNext')[0].value = 1;
+
+
+            document.getElementById("rating").innerHTML = " &nbsp " + document.getElementsByName("rating")[0].value;
 
 
             document.getElementById("result-box").style.display = "block";
@@ -226,6 +265,9 @@
         else {
             document.getElementById("speed").innerHTML = " &nbsp " + Math.round(speed);
             document.getElementById("mistakes").innerHTML = " &nbsp " + Mistakes;
+            document.getElementById("rating").innerHTML = " &nbsp " + 0;
+
+            document.getElementById("rating").style.color = "red";
 
             if (speed < minSpeed)
             { document.getElementById("speed").style.color = "red"; }

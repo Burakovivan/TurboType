@@ -2,7 +2,7 @@
 @using TurboType.Models
 @if (Request.IsAuthenticated)
 {
-    
+
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
@@ -13,7 +13,10 @@
                     string id = User.Identity.GetUserId();
                     using (TTContext db = new TTContext())
                     {
-                        string login = db.Users.Where(user => user.Id == id).First().Login;
+                        string login = "'InvalidName, sign out pls'";
+                        if (db.Users.Where(user => user.Id == id).Count() > 0)
+                        { login = db.Users.Where(user => user.Id == id).First().Login; }
+                         
 
                         @Html.ActionLink("Hello " + login + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" });
                     }
@@ -27,7 +30,7 @@
                     {
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="\Account\Register" id="registerLink"><i class="fa fa-user-plus"></i> Зарегистрироваться</a></li>
-                            <li><a href="\Account\Login" id = "loginLink"><i class="fa fa-sign-in"></i> Войти</a></li>
+                            <li><a href="\Account\Login" id="loginLink"><i class="fa fa-sign-in"></i> Войти</a></li>
                         </ul>
                     }
 
