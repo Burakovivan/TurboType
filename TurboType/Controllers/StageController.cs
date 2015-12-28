@@ -20,12 +20,56 @@ namespace TurboType.Controllers
                 {
                     if (db.Stages.Select(s => s.StageId).Contains(id))
                         ViewBag.Current = db.Stages.FirstOrDefault(st => st.StageId == id);
-                    else  return RedirectToAction("../Home/Index");
+                    else return RedirectToAction("Index", "Home");
                 }
             }
 
 
             return View();
+
+
+        }
+
+        public ActionResult SubmitStageResult(int speed, int mistakes, int index, int isNext)
+        {
+            if (isNext == 1)
+            {
+                using (TTContext db = new TTContext())
+                {
+                    PassedStage cur = new PassedStage();
+                    int minSpeed = db.Stages.First(s => s.StageId == index).MinimalSpeed;
+                    cur.Rating = (int)((speed - minSpeed) * 0.7) + 150 - 15 * mistakes;
+                    cur.StageId = index;
+                    cur.TimeOfPassage = DateTime.Now;
+                    cur.UserId = db.Users.Single(user => user.Email == User.Identity.Name).Id;
+
+                    if (db.PassedStages.Count(p => p.StageId == cur.StageId && p.UserId == cur.UserId) > 0)
+                    {
+                        if (db.PassedStages.Where(p => p.StageId == cur.StageId && p.UserId == cur.UserId).First().Rating < cur.Rating)
+                        {
+                            db.Users.Single(user => user.Email == User.Identity.Name).Rating += db.PassedStages.Where(p => p.StageId == cur.StageId && p.UserId == cur.UserId).First().Rating - cur.Rating;
+                            db.PassedStages.Where(p => p.StageId == cur.StageId && p.UserId == cur.UserId).First().Rating = cur.Rating;
+                        }
+                    }
+                    else
+                    {
+                        db.PassedStages.Add(cur);
+                        db.Users.Single(user => user.Email == User.Identity.Name).Rating += cur.Rating;
+                    }
+
+
+                        db.SaveChanges();
+
+                    if (db.Stages.Select(s => s.StageId).Contains(index + 1))
+                        return RedirectToAction("Index/" + (index + 1), "Stage");
+                    else
+                        return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index/" + index, "Stage");
+            }
 
 
         }

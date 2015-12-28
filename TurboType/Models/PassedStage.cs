@@ -19,12 +19,12 @@ namespace TurboType.Models
         /// <summary>
         /// Id этапа.
         /// </summary>
-        public string StageId { set; get; }
+        public int StageId { set; get; }
 
         /// <summary>
         /// Id этапа.
         /// </summary>
-        public byte Rating { set; get; }
+        public int Rating { set; get; }
 
         /// <summary>
         /// Время прохождения

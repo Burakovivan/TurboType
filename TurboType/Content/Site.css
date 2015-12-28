@@ -44,7 +44,9 @@ textarea {
 }
 
 .stage-name {
+    margin:10px;
     text-align: center;
+    font-size:20px;
 }
 
 .stage-complexity {
@@ -421,4 +423,16 @@ color: #3CADD4;*/
 
 .text-span {
     color: black;
+}
+.stage-desc div{
+    text-align:center;
+    width:90%;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color:#D7EBFF;
+    border-radius:3px;
+    font-size:20px;
+}
+.stage-desc{
+    padding:10px;
 }
